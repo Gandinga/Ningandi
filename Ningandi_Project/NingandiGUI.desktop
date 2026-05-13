@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=NingandiGUI
+Exec=sudo python3 /usr/local/bin/Ningandi_Project/NingandiGUI.py
+Icon=/usr/local/bin/Ningandi.png
+Categories=Utility;
+Terminal=true
