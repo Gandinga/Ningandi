@@ -341,7 +341,7 @@ set-executionpolicy -executionpolicy Bypass -scope process
 now we start the hotspot with the script:
 
 ```
-./hotspot-start.ps1
+./hotspot-start.ps1 on
 ```
 
 now we start the Ningandi server:
@@ -354,15 +354,19 @@ python ./Ningandi.py
 
 **Console setup**   
 now in your console set the hotspot wifi network and in the DNS section set it manually, use the hotspot ip address as primary DNS server example: 192.168.137.1   
-Done you will see it working in the terminal, the console thinks it has internet and you are free to use any local wi-fi tool like FTP apps without your console needing internet  
+Done you will see it working in the terminal, the console thinks it has internet and you are free to use any local wi-fi tool like FTP apps without your console needing internet   
 
 **After you are done**  
-After you are done using the server you can just hit CTRl+C in the terminal to end it and in your tray you can right click Technitium and hit Exit, your PC has normal connectivity again and the hotspot can be turned off from the normal Windows settings   
+After you are done using the server you can just hit CTRl+C in the terminal to end it and in your tray you can right click Technitium and hit Service then Stop, your PC has normal connectivity again    
+the hotspot can be turned off from the normal Windows settings or with this command in the powershell terminal:   
+```
+./hotspot-start.ps1 off
+```
 
 
 **Usage Framework:**   
-start Technitium   
-Open an admin PowerShell terminal and change directory to the project folder where you placed it, example: cd C:\Users\\<your username\>\Desktop\Ningandi\Ningandi_Project  
+start Technitium and on the system tray right click Technitium and make sure in Network DNS that Technitium is selected    
+open an admin PowerShell terminal and change directory to the project folder where you placed it, example: cd C:\Users\\<your username\>\Desktop\Ningandi\Ningandi_Project  
 enter the command to allow scripts:   
 ```
 set-executionpolicy -executionpolicy Bypass -scope process
@@ -370,13 +374,20 @@ set-executionpolicy -executionpolicy Bypass -scope process
 
 start hotspot:  
 ```
-./hotspot-start.ps1
+./hotspot-start.ps1 on
 ```
 start server:  
 ```
 python ./Ningandi.py
 ```
+when you are done just hit Ctrl + C in the terminal and then stop the hotspot
+```
+./hotspot-start.ps1 off
+```
+then stop Technitium in the system tray by right clicking it and hiting Service then Stop 
 
+
+**WSL2**
 I won't even bother with WSL2 because at that point you are just running a limited Linux Hyper-V environment on your windows machine and you'd do better just following the steps bellow:  
 
 1. Install a VM with Ubuntu.
@@ -393,7 +404,7 @@ If you want to make an install program to automate this entire process or the se
 
 
 **DO NOT USE the NingandiGUI.py PROGRAM** (it won't work in windows)   
-**DO NOT RUN the setup_install.sh** (it's for linux users only)     
+**DO NOT RUN the setup_install.sh or uninstall.sh** (it's linux users only)     
 
 
 
@@ -659,9 +670,9 @@ You will assume all responsibility for how you use this tool.
 
 
 
-## **FINAL THOUGHTS**  
+## **💭FINAL THOUGHTS**  
 I mostly code in C, C++, Python, Shell script, and powershell scripts, decided to make this project almost entirely in python to make it easier on myself to do, but working with tkinter (*"tkinter!? what is this the 90s?"*) you'd be surprised by how good some GUIs can look on it, anyway it was a pain and figuring out creative ways to handle all potential issues took me a lot longer than I thought, you may look at my code and say *"duh how else would you do it?"* but hindsight is always 20/20 and I dont always see the obvious solution until later.   
-Feel free to use the code as you need it, learn from it, use it as educational material (not to cheat on your CS class) to study, make derivatives works or contribute to the code, I left all my notes as I was coding in, so it's clear what everything does (mostly meant for future me). The code itself is basic networking for the Ningandi.py server and for the NingandiGUI.py It's mostly functions to check what your system is using and apply that to the start, stop, and closing functions and a lot of tkinter settings to make it look "good", that's what took me the most time since I don't normally make gui applications most of my work focuses on backend programing, I also made an installation scrip and uninstall script. If you find any issues or have opinions on what would look better or how to improve something let me know.  
+Feel free to use the code as you need it, learn from it, use it as educational material (not to cheat on your CS class) to study, make derivatives works or contribute to the code read the licence document for details. I left all my notes as I was coding in, so it's clear what everything does (mostly meant for future me). The code itself is basic networking for the Ningandi.py server and for the NingandiGUI.py It's mostly functions to check what your system is using and apply that to the start, stop, and closing functions and a lot of tkinter settings to make it look "good", that's what took me the most time since I don't normally make gui applications most of my work focuses on backend programing, I also made an installation scrip and uninstall script. If you find any issues or have opinions on what would look better or how to improve something let me know.  
 I hope the Nintendo modding communities especially the 3DS communities find use out of this I just wanted to give back to the communities that I got so much out of so I poured all my effort into making my private tool into an actual usable project people can use withouth them needing to be a network engineer to operate it, I also plan to add compatibility for any future Nintendo console that uses a different servers to validate wi-fi and add more detailed tutorials in the [🔗TECHNICAL](#technical) section for different devices and edge cases as needed/requested.  
 
 If this project is well recieved by anyone that actually uses it I will make sure to publish more of my tools that I've created after making them user friendy and creating tutorials and GUIs for them otherwise I'll just step back and keep my other tools and code for consoles private.
