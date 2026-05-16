@@ -66,7 +66,7 @@ sudo cp /etc/dnsmasq.conf $USER_HOME/dnsmasq.conf-clean       #The first one is 
 #Start loop appending the mapping configurations, this is why I made the array with the domains
 echo "configuring DNS entries..."
 for domain in "${domains[@]}"; do
-  echo "address=/$domain/$HOTSPOT_IP" | sudo tee -a /etc/dnsmasq.conf  #tee -a appends the tring we piped in with echo at the end of the file
+  echo "address=/$domain/$HOTSPOT_IP" | sudo tee -a /etc/dnsmasq.conf  # -a appends the tring we piped in with echo at the end of the file
   echo -e "${GREEN}✅ Added $domain ${RS}"   #Nice visual feedback for the user, they see what has been added in real time
 done 
 
