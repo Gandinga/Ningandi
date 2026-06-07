@@ -169,7 +169,7 @@ once you are done using it just click the Stop server button or close the Ningan
 When you want to uninstall the project from your machine or simply change your setup to a new interface with more range etc, just run the uninstallation script I made  
 on the terminal in the project folder containing the uninstall script run this:  
 ```
-bash ./uninstall.hs
+bash ./uninstall.sh
 ```
 Done! it is uninstalled and if you want to install it again with your new setup just run the install script again and it will detect your new hardware and adapt automatically, it takes less than 10 seconds to uninstall and install again, easy peasy lemon squeezy!  
 
